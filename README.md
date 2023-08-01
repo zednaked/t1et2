@@ -1,12 +1,19 @@
 Checklist Tarefa1 - familiarização com o codigo atual e suas tecnologias:
 
 [ ] Tarefa 1: Estudar o funcionamento do protótipo PvP e ver como está implementado o fluxo, as interações entre os sistemas (Client, API, Open Match, Agones, Game Server)
+
 [ ] 1.1 Acessar o protótipo PvP e explorar as suas funcionalidades
+
 [ ] 1.2 Ler a documentação do protótipo PvP e entender a sua arquitetura
+
 [ ] 1.3 Estudar o código-fonte do Client e ver como ele se comunica com a API
+
 [ ] 1.4 Estudar o código-fonte da API e ver como ela se comunica com o Open Match, o Agones e o Game Server
+
 [ ] 1.5 Estudar o código-fonte do Open Match e ver como ele faz o matchmaking dos jogadores
+
 [ ] 1.6 Estudar o código-fonte do Agones e ver como ele aloca os servidores de jogo
+
 [ ] 1.7 Estudar o código-fonte do Game Server e ver como ele gerencia a lógica de jogo
 
 [ ] Tarefa 2: Responder a pergunta: Como funciona o fluxo de telas do Client para o PvP?
