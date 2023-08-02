@@ -104,7 +104,7 @@ Checklist Tarefa1 - familiarização com o codigo atual e suas tecnologias:
 [ ] 9.2 Explicar o conceito de REST e como ele é usado para comunicação entre serviços
 
 
-    A Representational State Transfer (REST), em português Transferência de Estado Representacional, é uma abstração da arquitetura da World Wide Web, mais precisamente, é um estilo arquitetural que consiste de um conjunto coordenado de restrições arquiteturais aplicadas a componentes, conectores e elementos de dados dentro de um sistema de hipermídia distribuído1.
+    A Representational State Transfer (REST), em português Transferência de Estado Representacional, é uma abstração da arquitetura da World Wide Web, mais precisamente, é um estilo arquitetural que consiste de um conjunto coordenado de restrições arquiteturais aplicadas a componentes, conectores e elementos de dados dentro de um sistema de hipermídia distribuído.
 
     No mundo da programação, o conceito de REST (Representational State Transfer) se aplica à construção de Aplicações Web, como softwares e sites, consistindo em um protocolo sobre a Arquitetura da Informação.
 
