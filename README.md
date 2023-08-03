@@ -5,35 +5,51 @@ Checklist Tarefa1 - familiarização com o codigo atual e suas tecnologias:
 
 [ ] 1.1 Acessar o protótipo PvP e explorar as suas funcionalidades
 
+    acessado, explorado
+
 [ ] 1.2 Ler a documentação do protótipo PvP e entender a sua arquitetura
+    
+    Lido e entendido
 
 [ ] 1.3 Estudar o código-fonte do Client e ver como ele se comunica com a API
 
+    Estudado, Visto
+
 [ ] 1.4 Estudar o código-fonte da API e ver como ela se comunica com o Open Match, o Agones e o Game Server
+    Em andamento
 
 [ ] 1.5 Estudar o código-fonte do Open Match e ver como ele faz o matchmaking dos jogadores
 
+    Em andamento
 
     O Open Match é um framework de matchmaking de código aberto que lida com o gerenciamento de infraestrutura para desenvolvedores de jogos, tudo isso enquanto lhes dá controle sobre sua lógica de correspondência. Quando um jogador deseja entrar em um jogo, um ticket é criado e armazenado no banco de dados do Open Match. Um conceito que chamamos de Diretor chamará o serviço backend para solicitar partidas do Open Match. O Open Match chamará uma função de correspondência, que você fornece, para transformar os tickets em partidas.
 
 
 
 [ ] 1.6 Estudar o código-fonte do Agones e ver como ele aloca os servidores de jogo
-
+    em andamento
 
    
 
 [ ] 1.7 Estudar o código-fonte do Game Server e ver como ele gerencia a lógica de jogo
 
+    o codigo do server cria o objeto player dentro da waiting room, quando nessa sala, fica procurando um jogador disponivel para match, quando encontra ele cria uma play_room e coloca o objeto player e o objeto other_player como child.
+
+    Uma vez dentro de uma play_room (Classe PlayRoom) que gerencia os turnos, contagem de tempo, execução do turno de processamento (processing_turn), filas, distancia do evo mais proximo, etc.. (scr_playroom.gd)
+
 
 
 [ ] Tarefa 2: Responder a pergunta: Como funciona o fluxo de telas do Client para o PvP?
 
-[ ] 2.1 Descrever as telas do Client e suas funções
+    Ao efetuar a validação do login o botão Arena fica disponível e ao pressioná-lo muda pra cena scn_lobby_arena.tsc
 
-[ ] 2.2 Descrever as transições entre as telas e os eventos que as acionam
+    onde vai permanecer até encontrar um oponente, então o servidor vai pedir pro cliente trocar pra cena de arena (load_scene_arena)
 
-[ ] 2.3 Descrever os dados que são enviados e recebidos pelo Client em cada tela
+    na cena de arena ele irá para duas cenas, vitoria (server emite player_win_battle), derrota (server emite player_lose_battle)
+
+    na cena de vitoria (scn_win_arena) sinaliza a vitoria
+
+    na cena de derrota (scn_lose_arena) sinaliza a derrota
 
 
 [ ] Tarefa 3: Responder a pergunta: O que acontece após o player conseguir um ticket de matching?
@@ -56,39 +72,34 @@ Checklist Tarefa1 - familiarização com o codigo atual e suas tecnologias:
 
 [ ] Tarefa 5: Responder a pergunta: Como é feito o match entre dois jogadores, detalhadamente?
 
-[ ] 5.1 Explicar o conceito de match function e como ela é definida pelo Open Match
 
-[ ] 5.2 Explicar o conceito de match profile e como ele é configurado pelo Open Match
 
-[ ] 5.3 Explicar o conceito de match evaluator e como ele é implementado pelo Open Match
-
-[ ] 5.4 Explicar o fluxo de dados entre o Open Match, a API e o Client durante o processo de matchmaking
 
 [ ] Tarefa 6: Responder a pergunta: Como um jogador sabe as informações do outro?
 
-[ ] 6.1 Explicar o conceito de player profile e como ele é criado e armazenado na API
 
-[ ] 6.2 Explicar como o player profile é enviado ao Open Match e como ele é usado no matchmaking
-
-[ ] 6.3 Explicar como o player profile é enviado ao Client e como ele é exibido na tela
+    
 
 
 [ ] Tarefa 7: Responder a pergunta: Como é feito o cálculo para definir a distância entre os evos?
 
-[ ] 7.1 Explicar o conceito de evo e como ele é representado no Game Server
+    A classe EVO tem um metodo para isso chamado distance que retorna:
+        func distance(evo : EVO) -> int:
+            var evo_position : int = EvoPosition.get(choosed_position)
+            var target_position : int = EvoPosition.get(evo.choosed_position)
+            return (target_position * evo_position) - evo_position
 
-[ ] 7.2 Explicar o conceito de distância entre os evos e como ela afeta a jogabilidade
+    Essa função é utilizada pelo metodo _get_closest_target_alive dento da classe PlayRoom em _get_closest_target_alive .
 
-[ ] 7.3 Explicar a fórmula matemática usada para calcular a distância entre os evos
+
 
 
 [ ] Tarefa 8: Responder a pergunta: Como é definido a fila de ataque dos evos?
+    A classe PlayRoom tem um metodo para criar essa fila de ataque (_build_attack_queue).
+     ele usa os criterios, max_dexterity, min_resistance, max_lethality, max_precision para montar uma array e embaralhar.
+     depois ele cria instancias desses evos dentro da $AttackQueue por fim armazena dentro desse Evo atacante sua posição (??????)
 
-[ ] 8.1 Explicar o conceito de fila de ataque e como ela é representada no Game Server
 
-[ ] 8.2 Explicar o conceito de prioridade de ataque e como ela é determinada pelo Game Server
-
-[ ] 8.3 Explicar o algoritmo usado para ordenar os evos na fila de ataque
 
 
 [ ] Tarefa 9: Responder as perguntas: Quais serviços da infra utilizam gRPC? Quais serviços da infra utilizam REST? Como é feita a alocação de um Server no Agones? É possível rodar quais sistemas fora do cluster kubernetes? Como?
