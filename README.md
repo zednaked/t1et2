@@ -54,20 +54,10 @@ Checklist Tarefa1 - familiarização com o codigo atual e suas tecnologias:
 
 [ ] Tarefa 3: Responder a pergunta: O que acontece após o player conseguir um ticket de matching?
 
-[ ] 3.1 Explicar o conceito de ticket de matching e como ele é gerado pelo Open Match
-
-[ ] 3.2 Explicar como o ticket de matching é armazenado na API e como ele é atualizado pelo Open Match
-
-[ ] 3.3 Explicar como o Client consulta o status do ticket de matching e como ele recebe a notificação de match encontrado
 
 
 [ ] Tarefa 4: Responder a pergunta: Quais endpoints na API são responsáveis pela gestão do ticket de matching?
 
-[ ] 4.1 Listar os endpoints da API relacionados ao ticket de matching e suas rotas
-
-[ ] 4.2 Descrever os parâmetros, os métodos e os retornos de cada endpoint
-
-[ ] 4.3 Descrever a lógica interna de cada endpoint e como eles interagem com o Open Match
 
 
 [ ] Tarefa 5: Responder a pergunta: Como é feito o match entre dois jogadores, detalhadamente?
